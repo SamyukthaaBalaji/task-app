@@ -4,7 +4,10 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 const pool = require("./db");
-//Route
+
+app.get("/", (req, res) => {
+  res.send("Hello, Vercel!");
+});
 
 //Create a todo
 app.post("/todo", async (req, res) => {
