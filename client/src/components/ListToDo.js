@@ -5,7 +5,7 @@ function ListToDo() {
   const [todos, settodos] = useState([]);
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/alltodo");
+      const response = await fetch("https://task-app-inje.vercel.app/alltodo");
       const jsondata = await response.json();
       /*  console.log(response); */
       /*  console.log(jsondata); */
@@ -17,9 +17,12 @@ function ListToDo() {
   };
   const deletetodo = async (id) => {
     try {
-      const deletetodo = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE",
-      });
+      const deletetodo = await fetch(
+        `https://task-app-inje.vercel.app/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       settodos(todos.filter((todo) => todo.todo_id !== id));
       console.log(deletetodo);
     } catch (error) {
